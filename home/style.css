@@ -1,111 +1,201 @@
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #f4efe3;
+    --marrom: #6b3f2a;
+    --marrom-escuro: #3b1f12;
+    --texto: #7a6a5f;
+    --borda: #d9cfc0;
+    --acento: #c08552;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Outfit', sans-serif;
+}
+
 .header {
-    padding: 50px;
+    padding: 48px 50px 56px;
 }
 
-.home_cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.home_container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-.h1 {
-    font-size: 52px;
-   /* background-color: #ecc8c8;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.filtro {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-
-.filtro button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: antiquewhite;
-
-}
-
-.filtro button:first-child {     /*pegar o primeiro botão e deixar marron*/
-   background-color: #5c3a21;
-    color: white;
-}
-
-
-/*------------- PRODUTOS ------------*/
-
-.container{
-    width: 80%;
+.container {
+    width: 90%;
     max-width: 1200px;
-    background-color: antiquewhite;
     margin: 0 auto;
 }
 
-
-
-.Produtos{
-    max-width: 120%;
-    width: 120;
+/* ---------- Cabeçalho ---------- */
+.home_cabecalho {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
-    background-color: antiquewhite;
-    
 }
 
-.Produtos div{
-    width: 20%;
+.home_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.Produtos img{
-    width: 100%;
-  /*  height: 170px;*/
-    object-fit: cover;
-    border-radius: 15px;
-  /*  margin-left: 20px;*/
-
+.titulo {
+    position: relative;
+    padding-left: 76px;           /* espaço para a linha decorativa */
 }
 
+.titulo::before {                 /* linha decorativa */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 52px;
+    height: 2px;
+    background: var(--acento);
+}
 
-.Produtos h2{
+h1 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--marrom-escuro);
+}
+
+.titulo p {
+    margin-top: 8px;
     font-size: 15px;
-    margin-top: 12px;
-    margin-bottom: 8px;
-    
-    
+    color: var(--texto);
 }
-.Produtos p{
+
+.btn-ver-todos {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border: 1px solid var(--marrom-escuro);
+    border-radius: 999px;
+    color: var(--marrom-escuro);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .2s, color .2s;   /* corrigido */
+}
+
+.btn-ver-todos:hover {
+    background: var(--marrom-escuro);
+    color: #fff;
+}
+
+/* ---------- Filtros ---------- */
+.filtro {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0 28px 76px;     /* alinhado com o título */
+}
+
+.filtro button {
+    padding: 9px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--marrom-escuro);
+    font-family: inherit;
     font-size: 14px;
-    /* line-height: 1.6px; */
-    margin-bottom: 12px;
-  
-   
-
+    font-weight: 400;
 }
 
-.Produtos{
+.filtro button:first-child {
+    background-color: var(--marrom);
+    border-color: var(--marrom);
+    color: #fff;
+}
+
+/*------------- PRODUTOS ------------*/
+.Produtos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.Produtos > div {
+    position: relative;           /* para posicionar o selo */
+    background: none;             /* sem caixa branca */
+    box-shadow: none;             /* sem sombra */
+    border-radius: 0;
+    overflow: visible;
+    padding-bottom: 0;
+}
+
+.Produtos img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;          /* imagem mais alta */
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;          /* todos os cantos */
+    margin-bottom: 18px;
+}
+
+.Produtos h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0 0 8px;
+    color: var(--marrom-escuro);
+}
+
+.Produtos p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+    color: var(--texto);
+}
+
+/* Preço: mesmo estilo em qualquer tag usada no último elemento do card */
+.Produtos .preco,
+.Produtos strong,
+.Produtos b,
+.Produtos span:not(.selo),
+.Produtos > div > :last-child {
+    display: block;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
     font-size: 18px;
-    margin-top: 12px ; 
+    font-weight: 500;
+    color: var(--marrom-escuro);
 }
-        
+
+/* ---------- Selos ---------- */
+.selo {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #fff;
+    color: var(--marrom);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+    .Produtos { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .Produtos { grid-template-columns: 1fr; }
+    .titulo { padding-left: 0; }
+    .titulo::before { display: none; }
+    .filtro { margin-left: 0; }
+    .home_cabecalho { flex-wrap: wrap; gap: 16px; }
+}
