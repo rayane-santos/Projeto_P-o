@@ -82,21 +82,20 @@ h1 {
     letter-spacing: .08em;
     font-size: 13px;
     font-weight: 500;
-    transition: background .2s, color .2s;   /* corrigido */
 }
 
-.btn-ver-todos:hover {
+/*.btn-ver-todos:hover {
     background: var(--marrom-escuro);
     color: #fff;
-}
+}*/
 
 /* ---------- Filtros ---------- */
 .filtro {
     display: flex;
     gap: 8px;
-    margin: 24px 0 28px 76px;     /* alinhado com o título */
+    margin: 24px 0 28px 76px;     
 }
-
+    gi
 .filtro button {
     padding: 9px 20px;
     border: 1px solid var(--borda);
@@ -125,9 +124,9 @@ h1 {
 }
 
 .Produtos > div {
-    position: relative;           /* para posicionar o selo */
-    background: none;             /* sem caixa branca */
-    box-shadow: none;             /* sem sombra */
+    position: relative;           
+    background: none;             
+    box-shadow: none;             
     border-radius: 0;
     overflow: visible;
     padding-bottom: 0;
@@ -136,10 +135,10 @@ h1 {
 .Produtos img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;          /* imagem mais alta */
+    aspect-ratio: 4 / 3;          
     height: auto;
     object-fit: cover;
-    border-radius: 20px;          /* todos os cantos */
+    border-radius: 20px;          
     margin-bottom: 18px;
 }
 
