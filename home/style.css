@@ -95,18 +95,21 @@ h1 {
     gap: 8px;
     margin: 24px 0 28px 76px;     
 }
-    gi
+    
 .filtro button {
+    appearance: none;
     padding: 9px 20px;
     border: 1px solid var(--borda);
     border-radius: 999px;
     cursor: pointer;
     background: transparent;
     color: var(--marrom-escuro);
-    font-family: inherit;
+    font-family: 'Outfit', sans-serif;
     font-size: 14px;
     font-weight: 400;
+    line-height: 1.2;
 }
+
 
 .filtro button:first-child {
     background-color: var(--marrom);
